@@ -1,0 +1,73 @@
+<!-- reminder_item.xml -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="20dp"
+    android:elevation="16dp"
+    app:cardElevation="16dp"
+    android:layout_marginEnd="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
+
+
+    <!-- Shapeable Image View -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageview_reminder"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/baseline_location_on_24" />
+
+    <!-- Texts -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="30dp"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:text="TEST"
+            android:id="@+id/textview_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Location -->
+        <TextView
+            android:text="TEST TEST TEST"
+            android:id="@+id/textview_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <!-- Distance -->
+        <TextView
+            android:text="1 km"
+            android:id="@+id/textview_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/isChecked_CB"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
