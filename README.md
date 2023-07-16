@@ -22,7 +22,7 @@ The app uses a combination of foreground service and fused location provider to 
 
 ## Presentation
 
-
+![mobile_security_22](https://github.com/DanielBretts/Remind-Me-Near/assets/60986160/259339ae-69ba-426a-ad4a-ea65247e2299)
 
 ## Permissions
 
