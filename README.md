@@ -38,5 +38,6 @@ On Android versions prior to Android 6.0, the app requires the following permiss
 - Google Maps
 - [Yoyo Animations](https://github.com/daimajia/AndroidViewAnimations)
 
-
+### Credits
+- [guy-4444](https://github.com/guy-4444/Class23A-Ands-4)
 ### This application was originally created by Daniel Brettschneider.
