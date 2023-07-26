@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.example.reminderbylocation.Fragments.MapViewFragment;
 import com.example.reminderbylocation.Fragments.RemindersFragment;
 import com.example.reminderbylocation.databinding.ActivityMainBinding;
-import com.example.reminderbylocation.services.LocationService;
+import com.example.reminderbylocation.Services.LocationService;
 
 public class MainActivity extends AppCompatActivity {
     private MapViewFragment mapFragment;

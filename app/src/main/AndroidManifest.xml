@@ -2,15 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".App"
@@ -23,17 +21,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderByLocation"
         tools:targetApi="31">
-        <activity
-            android:name=".ReminderDetails"
-            android:exported="false" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCYUNGKVk-EmtVyhDIsXfmpj7V8BChAjqU" />
+            android:value="@string/google_maps" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2427522720890580~2805109506"/>
+        <activity
+            android:name=".Activities.ReminderDetailsActivity"
+            android:exported="false" />
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".Activities.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +43,7 @@
         </activity>
 
         <service
-            android:name=".services.LocationService"
+            android:name=".Services.LocationService"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="location"

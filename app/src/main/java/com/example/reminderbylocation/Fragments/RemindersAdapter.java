@@ -1,7 +1,6 @@
 package com.example.reminderbylocation.Fragments;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.reminderbylocation.R;
-import com.example.reminderbylocation.Reminder;
-import com.example.reminderbylocation.ReminderDetails;
-import com.example.reminderbylocation.RemindersSharedPreferences;
+import com.example.reminderbylocation.Model.Reminder;
+import com.example.reminderbylocation.Activities.ReminderDetailsActivity;
+import com.example.reminderbylocation.Utils.RemindersSharedPreferences;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
 
@@ -52,7 +51,7 @@ public class RemindersAdapter extends RecyclerView.Adapter<RemindersAdapter.Remi
 
     private void openReminderDetailsActivity(Reminder reminder, ReminderViewHolder holder) {
         // Replace `YourReminderDetailsActivity.class` with the actual class name of your reminder details activity
-        Intent intent = new Intent(holder.itemView.getContext(), ReminderDetails.class);
+        Intent intent = new Intent(holder.itemView.getContext(), ReminderDetailsActivity.class);
         Gson gson = new Gson();
         String jsonReminder = gson.toJson(reminder);
         intent.putExtra("REMINDER_JSON",jsonReminder);

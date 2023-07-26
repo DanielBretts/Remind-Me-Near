@@ -5,16 +5,15 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.reminderbylocation.MainActivity;
+import com.example.reminderbylocation.Activities.MainActivity;
 import com.example.reminderbylocation.R;
-import com.example.reminderbylocation.RemindersSharedPreferences;
+import com.example.reminderbylocation.Utils.RemindersSharedPreferences;
 import com.example.reminderbylocation.databinding.FragmentRemindersBinding;
 
 public class RemindersFragment extends Fragment {

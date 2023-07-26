@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.reminderbylocation.SimpleLocation;
-import com.example.reminderbylocation.MainActivity;
+import com.example.reminderbylocation.Model.SimpleLocation;
+import com.example.reminderbylocation.Activities.MainActivity;
 import com.example.reminderbylocation.R;
-import com.example.reminderbylocation.Reminder;
-import com.example.reminderbylocation.RemindersSharedPreferences;
+import com.example.reminderbylocation.Model.Reminder;
+import com.example.reminderbylocation.Utils.RemindersSharedPreferences;
 import com.example.reminderbylocation.databinding.FragmentMapBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -60,7 +59,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback{
                 googleMap.clear();
                 String location = binding.svPlaces.getQuery().toString();
                 List<Address> addresses = null;
-                if(location != null || !location.isEmpty()){
+                if(location != null && !location.isEmpty()){
                     Geocoder geocoder = new Geocoder(getContext());
                     try{
                         addresses = geocoder.getFromLocationName(location,1);

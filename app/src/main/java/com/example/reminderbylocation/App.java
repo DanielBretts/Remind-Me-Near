@@ -1,7 +1,8 @@
 package com.example.reminderbylocation;
 
 import android.app.Application;
-import android.util.Log;
+
+import com.example.reminderbylocation.Utils.RemindersSharedPreferences;
 
 public class App extends Application {
     @Override

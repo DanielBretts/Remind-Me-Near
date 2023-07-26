@@ -1,4 +1,4 @@
-package com.example.reminderbylocation.services;
+package com.example.reminderbylocation.Services;
 
 import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
@@ -18,7 +18,6 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
@@ -29,13 +28,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.example.reminderbylocation.Constants;
-import com.example.reminderbylocation.IsServiceLocation;
-import com.example.reminderbylocation.SimpleLocation;
-import com.example.reminderbylocation.MainActivity;
+import com.example.reminderbylocation.Utils.Constants;
+import com.example.reminderbylocation.Model.SimpleLocation;
+import com.example.reminderbylocation.Activities.MainActivity;
 import com.example.reminderbylocation.R;
-import com.example.reminderbylocation.Reminder;
-import com.example.reminderbylocation.RemindersSharedPreferences;
+import com.example.reminderbylocation.Model.Reminder;
+import com.example.reminderbylocation.Utils.RemindersSharedPreferences;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationCallback;
@@ -50,7 +48,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class LocationService extends Service {
@@ -89,6 +86,20 @@ public class LocationService extends Service {
         }
     };
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        nm = (NotificationManager) this.getSystemService(Service.NOTIFICATION_SERVICE);
+        if (intent != null){
+            String action = intent.getAction();
+            if(action.equals(Constants.START_LOCATION_SERVICE)){
+                notifyToUserForForegroundService();
+                startGPS();
+            }else if(action.equals(Constants.STOP_LOCATION_SERVICE)){
+                stopLocationService();
+            }
+        }
+        return START_STICKY;
+    }
     private void checkIfNearReminders() {
         ArrayList<Reminder> list = RemindersSharedPreferences.getInstance().getList();
         LatLngBounds.Builder boundsBuilder = new LatLngBounds.Builder();
@@ -155,20 +166,6 @@ public class LocationService extends Service {
 
     }
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        nm = (NotificationManager) this.getSystemService(Service.NOTIFICATION_SERVICE);
-        if (intent != null){
-            String action = intent.getAction();
-            if(action.equals(Constants.START_LOCATION_SERVICE)){
-                notifyToUserForForegroundService();
-                startGPS();
-            }else if(action.equals(Constants.STOP_LOCATION_SERVICE)){
-                stopLocationService();
-            }
-        }
-        return START_STICKY;
-    }
 
     private void startGPS() {
         // Run GPS
