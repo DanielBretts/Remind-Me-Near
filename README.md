@@ -2,6 +2,7 @@
 
 <img src="app/src/main/res/drawable/appicon.png" align="left"
 width="200" hspace="10" vspace="10">
+<a href="https://play.google.com/store/apps/details?id=com.brettstudio.android.reminderbylocation"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="75"></a>
 
 ## About
 
